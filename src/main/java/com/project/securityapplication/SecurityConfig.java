@@ -28,14 +28,17 @@ public class SecurityConfig {
     {
         UserDetails user1 = User.withUsername("user1")
                 .password("{noop}123")
+                .roles("USER")
                 .build();
 
         UserDetails user2 = User.withUsername("user2")
                 .password("{noop}123")
+                .roles("USER")
                 .build();
 
         UserDetails admin = User.withUsername("admin")
                 .password("{noop}123")
+                .roles("ADMIN")
                 .build();
 
 
