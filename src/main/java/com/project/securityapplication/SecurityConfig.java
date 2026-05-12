@@ -30,6 +30,15 @@ public class SecurityConfig {
                 .password("{noop}123")
                 .build();
 
-        return new InMemoryUserDetailsManager(user1);
+        UserDetails user2 = User.withUsername("user2")
+                .password("{noop}123")
+                .build();
+
+        UserDetails admin = User.withUsername("admin")
+                .password("{noop}123")
+                .build();
+
+
+        return new InMemoryUserDetailsManager(user1,user2,admin);
     }
 }
