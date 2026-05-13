@@ -1,4 +1,3 @@
-````md id="x8n2qp"
 # Spring Boot Security
 
 This project is created for learning Spring Security with Spring Boot.
