@@ -32,7 +32,7 @@ public class SecurityConfig {
         UserDetails user1 = User.withUsername("user1")
                 .password("{noop}123")
                 .roles("USER")
-                .build();
+                .build();   // noop plain text not encode mode
 
         UserDetails user2 = User.withUsername("user2")
                 .password("{noop}123")
