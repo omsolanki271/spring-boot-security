@@ -1,3 +1,4 @@
+````md id="x8n2qp"
 # Spring Boot Security
 
 This project is created for learning Spring Security with Spring Boot.
@@ -8,6 +9,7 @@ This project is created for learning Spring Security with Spring Boot.
 - In-Memory Authentication
 - Multiple Users
 - Role-Based Authorization
+- Public and Protected Endpoints
 - SecurityFilterChain Configuration
 
 ## Technologies Used
@@ -25,15 +27,16 @@ This project is created for learning Spring Security with Spring Boot.
 | user2 | 123 | USER |
 | admin | 123 | ADMIN |
 
-## Endpoints
+## API Endpoints
 
 | Endpoint | Access |
 |----------|--------|
+| / | Public |
 | /hello | Any Authenticated User |
 | /user | USER Role |
 | /admin | ADMIN Role |
 
-## Concepts Learned
+## Security Concepts
 
 - UserDetails
 - UserDetailsService
@@ -41,5 +44,62 @@ This project is created for learning Spring Security with Spring Boot.
 - HttpSecurity
 - requestMatchers()
 - hasRole()
+- permitAll()
 - httpBasic()
 - SecurityFilterChain
+
+## Authentication Flow
+
+```text
+Client Request
+      ↓
+SecurityFilterChain
+      ↓
+HttpSecurity Rules
+      ↓
+UserDetailsService
+      ↓
+InMemoryUserDetailsManager
+      ↓
+Authentication Success
+````
+
+## Project Structure
+
+```text
+src
+ └── main
+      ├── java
+      │     └── com.project.securityapplication
+      │              ├── SecurityApplication.java
+      │              ├── SecurityConfig.java
+      │              └── HelloController.java
+      │
+      └── resources
+             └── application.properties
+```
+
+## Learning Progress
+
+Completed Topics:
+
+* Spring Boot Setup
+* Spring Security Setup
+* Custom Username & Password
+* Basic Authentication
+* In-Memory Authentication
+* Multiple Users
+* Role-Based Authorization
+* Public Endpoint Access
+* SecurityFilterChain Configuration
+
+## Future Goals
+
+* Password Encoder
+* BCrypt Password Hashing
+* Database Authentication
+* JWT Authentication
+* Custom Login API
+* Exception Handling
+
+````
