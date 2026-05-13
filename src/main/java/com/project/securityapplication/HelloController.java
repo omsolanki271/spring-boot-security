@@ -11,6 +11,12 @@ public class HelloController {
         return "Hello";
     }
 
+    @GetMapping("/")
+    public String home()
+    {
+        return "Public Home";
+    }
+
     @GetMapping("/user")
     public  String user()
     {
