@@ -52,9 +52,13 @@ public class SecurityConfig {
                 .roles("ADMIN")
                 .build();
 
-
         // return new InMemoryUserDetailsManager(user1,user2,admin);
         JdbcUserDetailsManager userDetailsManager = new
                 JdbcUserDetailsManager(dataSource);
+        userDetailsManager.createUser(user1);
+        userDetailsManager.createUser(user2);
+        userDetailsManager.createUser(admin);
+        return userDetailsManager;
+
     }
 }
