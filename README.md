@@ -6,16 +6,20 @@ This project is created for learning Spring Security with Spring Boot.
 
 - Basic Authentication
 - In-Memory Authentication
+- JDBC Authentication
 - Multiple Users
 - Role-Based Authorization
 - Public and Protected Endpoints
 - SecurityFilterChain Configuration
+- MySQL Database Integration
 
 ## Technologies Used
 
 - Java 21
 - Spring Boot
 - Spring Security
+- Spring Data JPA
+- MySQL
 - Maven
 
 ## Users
@@ -31,7 +35,6 @@ This project is created for learning Spring Security with Spring Boot.
 | Endpoint | Access |
 |----------|--------|
 | / | Public |
-| /hello | Any Authenticated User |
 | /user | USER Role |
 | /admin | ADMIN Role |
 
@@ -40,12 +43,14 @@ This project is created for learning Spring Security with Spring Boot.
 - UserDetails
 - UserDetailsService
 - InMemoryUserDetailsManager
+- JdbcUserDetailsManager
 - HttpSecurity
 - requestMatchers()
 - hasRole()
 - permitAll()
 - httpBasic()
 - SecurityFilterChain
+- DataSource
 
 ## Authentication Flow
 
@@ -58,10 +63,23 @@ HttpSecurity Rules
       ↓
 UserDetailsService
       ↓
-InMemoryUserDetailsManager
+JdbcUserDetailsManager
+      ↓
+MySQL Database
       ↓
 Authentication Success
-````
+```
+
+## Database Configuration
+
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3307/spring_security
+spring.datasource.username=root
+spring.datasource.password=abc123
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+```
 
 ## Project Structure
 
@@ -82,23 +100,26 @@ src
 
 Completed Topics:
 
-* Spring Boot Setup
-* Spring Security Setup
-* Custom Username & Password
-* Basic Authentication
-* In-Memory Authentication
-* Multiple Users
-* Role-Based Authorization
-* Public Endpoint Access
-* SecurityFilterChain Configuration
+- Spring Boot Setup
+- Spring Security Setup
+- Custom Username & Password
+- Basic Authentication
+- In-Memory Authentication
+- JDBC Authentication
+- Multiple Users
+- Role-Based Authorization
+- Public Endpoint Access
+- SecurityFilterChain Configuration
+- MySQL Configuration
+- JdbcUserDetailsManager
+- DataSource Configuration
 
 ## Future Goals
 
-* Password Encoder
-* BCrypt Password Hashing
-* Database Authentication
-* JWT Authentication
-* Custom Login API
-* Exception Handling
-
-````
+- Password Encoder
+- BCrypt Password Hashing
+- Custom UserDetailsService
+- JWT Authentication
+- Custom Login API
+- Exception Handling
+- Refresh Token
