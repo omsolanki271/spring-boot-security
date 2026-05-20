@@ -37,6 +37,8 @@ public class SecurityConfig {
         http.exceptionHandling(exception ->
                 exception.accessDeniedPage("/denied"));
 
+        http.csrf(csrf -> csrf.disable());
+
         return http.build();
     }
 
