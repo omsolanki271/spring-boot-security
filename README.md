@@ -9,9 +9,13 @@ This project is created for learning Spring Security with Spring Boot.
 - JDBC Authentication
 - Multiple Users
 - Role-Based Authorization
+- Method-Level Authorization
 - Public and Protected Endpoints
 - SecurityFilterChain Configuration
 - MySQL Database Integration
+- Custom Access Denied Handling
+- Logout Configuration
+- CSRF Disable Configuration
 
 ## Technologies Used
 
@@ -37,6 +41,8 @@ This project is created for learning Spring Security with Spring Boot.
 | / | Public |
 | /user | USER Role |
 | /admin | ADMIN Role |
+| /test | USER and ADMIN Role |
+| /denied | Access Denied Page |
 
 ## Security Concepts
 
@@ -47,8 +53,12 @@ This project is created for learning Spring Security with Spring Boot.
 - HttpSecurity
 - requestMatchers()
 - hasRole()
+- hasAnyRole()
+- @PreAuthorize
 - permitAll()
 - httpBasic()
+- logout()
+- csrf()
 - SecurityFilterChain
 - DataSource
 
@@ -60,6 +70,8 @@ Client Request
 SecurityFilterChain
       ↓
 HttpSecurity Rules
+      ↓
+Method Security Check
       ↓
 UserDetailsService
       ↓
@@ -108,11 +120,16 @@ Completed Topics:
 - JDBC Authentication
 - Multiple Users
 - Role-Based Authorization
+- Method-Level Authorization
 - Public Endpoint Access
 - SecurityFilterChain Configuration
 - MySQL Configuration
 - JdbcUserDetailsManager
 - DataSource Configuration
+- Logout Configuration
+- CSRF Disable Configuration
+- Access Denied Handling
+- @PreAuthorize Annotation
 
 ## Future Goals
 
