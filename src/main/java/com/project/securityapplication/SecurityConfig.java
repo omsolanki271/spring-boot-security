@@ -34,6 +34,9 @@ public class SecurityConfig {
 
         http.logout(Customizer.withDefaults());
 
+        http.exceptionHandling(exception ->
+                exception.accessDeniedPage("/denied"));
+
         return http.build();
     }
 

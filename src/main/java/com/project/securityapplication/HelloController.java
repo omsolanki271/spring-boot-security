@@ -23,4 +23,10 @@ public class HelloController {
     {
         return "Welcome Admin";
     }
+
+    @GetMapping("/denied")
+    public String denied()
+    {
+        return "Access Denied";
+    }
 }
