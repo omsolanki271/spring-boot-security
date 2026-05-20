@@ -31,6 +31,9 @@ public class SecurityConfig {
                 .requestMatchers("/user").hasRole("USER")
                 .anyRequest().authenticated());
         http.httpBasic(Customizer.withDefaults());
+
+        http.logout(Customizer.withDefaults());
+
         return http.build();
     }
 
