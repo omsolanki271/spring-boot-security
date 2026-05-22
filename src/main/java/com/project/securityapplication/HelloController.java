@@ -15,6 +15,13 @@ public class HelloController {
         return  "Test Working";
     }
 
+    @PreAuthorize("hasRole('USER')")
+    @GetMapping("/dashboard")
+    public String dashboard()
+    {
+        return "User Dashboard";
+    }
+
     @GetMapping("/")
     public String home()
     {
