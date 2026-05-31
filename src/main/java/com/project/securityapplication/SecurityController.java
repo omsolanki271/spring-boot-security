@@ -44,4 +44,11 @@ public class SecurityController {
     {
         return "Spring Security Learning Project";
     }
+
+    @PreAuthorize("hasAnyRole('USER','ADMIN')")
+    @GetMapping("/reports")
+    public String reports()
+    {
+        return "Reports Page";
+    }
 }
