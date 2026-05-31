@@ -29,6 +29,7 @@ public class SecurityConfig {
                 .requestMatchers("/").permitAll()
                 .requestMatchers("/admin").hasRole("ADMIN")
                 .requestMatchers("/user").hasRole("USER")
+                .requestMatchers("/","/about").permitAll()
                 .anyRequest().authenticated());
         http.httpBasic(Customizer.withDefaults());
 

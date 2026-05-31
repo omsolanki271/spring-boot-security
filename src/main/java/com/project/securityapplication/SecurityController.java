@@ -10,39 +10,38 @@ public class SecurityController {
     //@PreAuthorize("hasRole('admin')")
     @PreAuthorize("hasAnyRole('admin','user')")
     @GetMapping("test")
-    public String test()
-    {
-        return  "Test Working";
+    public String test() {
+        return "Test Working";
     }
 
     @PreAuthorize("hasRole('USER')")
     @GetMapping("/dashboard")
-    public String dashboard()
-    {
+    public String dashboard() {
         return "User Dashboard";
     }
 
     @GetMapping("/")
-    public String home()
-    {
+    public String home() {
         return "Public Home";
     }
 
     @GetMapping("/user")
-    public  String user()
-    {
+    public String user() {
         return "Welcome User";
     }
 
     @GetMapping("/admin")
-    public  String admin()
-    {
+    public String admin() {
         return "Welcome Admin";
     }
 
     @GetMapping("/denied")
-    public String denied()
-    {
+    public String denied() {
         return "Access Denied";
+    }
+    @GetMapping("/about")
+    public String about()
+    {
+        return "Spring Security Learning Project";
     }
 }
